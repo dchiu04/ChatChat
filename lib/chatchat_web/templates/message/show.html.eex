@@ -1,0 +1,33 @@
+<h1>Show Message</h1>
+
+<ul>
+
+  <li>
+    <strong>User:</strong>
+    <%= @message.user_id %>
+  </li>
+
+  <li>
+    <strong>Room:</strong>
+    <%= @message.room_id %>
+  </li>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @message.name %>
+  </li>
+
+  <li>
+    <strong>Msg:</strong>
+    <%= @message.msg %>
+  </li>
+
+  <li>
+    <strong>Date:</strong>
+    <%= @message.date %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: Routes.message_path(@conn, :edit, @message) %></span>
+<span><%= link "Back", to: Routes.message_path(@conn, :index) %></span>

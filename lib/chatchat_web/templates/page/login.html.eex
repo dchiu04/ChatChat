@@ -1,0 +1,3 @@
+<h1>Welcome to ChatChat!</h1>
+<h3>Please enter your username</h3>
+<input id="user" type="text"></input>
