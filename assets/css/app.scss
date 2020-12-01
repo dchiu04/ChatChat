@@ -2,16 +2,30 @@
 @import "./phoenix.css";
 
 #logo {
-  color:purple;
+  color: #681885;
   text-align: center;
+  text-shadow: 2px 2px #dfdfdf;
+  padding-top: 20px;
 }
 span {
   color: #00daff;
+  font-weight: bold;
 }
 p {
   margin-bottom: 0px;
+  margin-left: 5px;
 }
 
+#chat-input{
+  background: white;
+}
+
+body {
+  background-color: #ecdfdf;
+}
+#colorpicker {
+  background-color: lightblue;
+}
 
 /*formatting chat box scrolling */
 .chat {
@@ -24,7 +38,8 @@ p {
  .panel-messages, .panel-users {
   height: 400px;
   overflow-y: scroll;
-  background-color: #fafafa;
+  background-color: white;
+  border-radius: 5px;
  }
  #chat-messages {
   min-height: 400px;

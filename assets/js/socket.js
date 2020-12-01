@@ -61,7 +61,6 @@ let msgContainer = document.getElementById("messages")
 
 //username
 let userName = getUsername();
-console.log(userName);
 
 //date
 let d = Date().toString();
@@ -96,5 +95,26 @@ function getUsername() {
   txt = name;
   document.getElementById("User").innerHTML = txt; 
   return txt; 
+}
+
+let body = document.getElementsByTagName("BODY")[0];
+let color = document.getElementById("color");
+let colorBtn = document.getElementById("colorpicker");
+
+colorBtn.addEventListener("keypress", event => {
+  if(event.key == "click") {
+    let body = document.getElementsByTagName("BODY")[0];
+    let color = document.getElementById("color");
+    body.getElementsByClassName.backgroundColor = color.value;
+    console.log("changed color to ", color.value); 
+  }
+})
+
+function changeBg() {
+  let body = document.getElementsByTagName("BODY")[0];
+  let color = document.getElementById("color");
+  body.getElementsByClassName.backgroundColor = color.value;
+  console.log("changed color to ", color.value); 
+
 }
 export default socket
