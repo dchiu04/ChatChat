@@ -12,17 +12,13 @@ config :chatchat,
 
 # Configures the endpoint
 config :chatchat, ChatchatWeb.Endpoint,
-#Don't work:
- #url: [host: "localhost"],
- #url: [host: "https://gentle-castle-10283.herokuapp.com/"],
- 
- #trying:
-  url: [scheme: "https", host: "https://gentle-castle-10283.herokuapp.com/"],
+
+  url: [scheme: "https", host: "https://chatchatelixir.herokuapp.com/"],
   check_origin: [
-   "https://www.gentle-castle-10283.herokuapp.com/",
-   "https://gentle-castle-10283.herokuapp.com/"
+   "https://chatchatelixir.herokuapp.com/",
+   "https://www.chatchatelixir.herokuapp.com/"
   ],
-  secret_key_base: "PBewU0fwXp2G5mlf3DrYpxXRkzwLHdG8o7PkvIdhf4oh4qmtHH5ZSuJ1pJRPeTAf",
+  secret_key_base: "ddydm5Q6mP4AMpsXDtR6wMJZvTeNnwgCa3sC2ftRe7soPiuV8Lgizk7C4aV1wqdc",
   render_errors: [view: ChatchatWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Chatchat.PubSub,
   live_view: [signing_salt: "/z7JoUhA"]
