@@ -73,14 +73,14 @@ chatInput.addEventListener("keypress", event => {
     d = Date().toString();
     date = d.split(' ').splice(0, 5).join(' ')
 
-    channel.push("new_msg", {name: userName, body: chatInput.value, date: date})
+    channel.push("new_msg", {name: userName, date: date, message: chatInput.value})
     chatInput.value = ""
   }
 })
 
 channel.on("new_msg", payload => {
   let msgItem = document.createElement("p");
-  msgItem.innerHTML = `${payload.date} <b>${payload.name}</b>: ${payload.body}`
+  msgItem.innerHTML = `${payload.date} <b>${payload.name}</b>: ${payload.message}`
   msgContainer.appendChild(msgItem);
 })
 
