@@ -56,14 +56,12 @@ socket.connect()
 
 // Now that you are connected, you can join channels with a topic:
 let channel = socket.channel("room:lobby", {})
-//let chatInput = document.querySelector("#chat-input")
 let chatInput = document.getElementById("chat-input")
 let msgContainer = document.getElementById("messages")
 
 //username
-let queryString = window.location.search;
-let urlParams = new URLSearchParams(queryString);
-let userName = urlParams.get('user');
+let userName = getUsername();
+console.log(userName);
 
 //date
 let d = Date().toString();
@@ -71,29 +69,32 @@ let date = d.split(' ').splice(0, 5).join(' ');
 
 chatInput.addEventListener("keypress", event => {
   if(event.key == "Enter") {
-    //refresh username?
-    queryString = window.location.search;
-    urlParams = new URLSearchParams(queryString);
-    userName = urlParams.get('user');
-
     //refresh date
     d = Date().toString();
     date = d.split(' ').splice(0, 5).join(' ')
 
-    channel.push("new_msg", {name: userName, body: chatInput.value})
+    channel.push("new_msg", {name: userName, body: chatInput.value, date: date})
     chatInput.value = ""
   }
 })
 
 channel.on("new_msg", payload => {
-  let msgItem = document.createElement("p")
-  msgItem.innerHTML = `${date} <b>${userName}</b>: ${payload.body}`
-  msgContainer.appendChild(msgItem)
+  let msgItem = document.createElement("p");
+  msgItem.innerHTML = `${payload.date} <b>${payload.name}</b>: ${payload.body}`
+  msgContainer.appendChild(msgItem);
 })
 
+channel.join();
 
-channel.join()
-  .receive("ok", resp => { console.log("Joined successfully", resp) })
-  .receive("error", resp => { console.log("Unable to join", resp) })
-
+//alerts users to enter a username to join the chatroom
+function getUsername() {
+  let txt;
+  let name = prompt("Please enter your name to enter the chatroom:");
+  while(name == "" || name == null) {
+    name = prompt("Enter your name to start chatting:")
+  }
+  txt = name;
+  document.getElementById("User").innerHTML = txt; 
+  return txt; 
+}
 export default socket

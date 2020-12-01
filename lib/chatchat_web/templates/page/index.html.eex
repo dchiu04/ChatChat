@@ -1,4 +1,5 @@
-<div id="user">Logged in as: <span id="User"><%= @conn.params["user"] %></span></div><br>
+<div id="user">Logged in as: <span id="User"></span></div><br>
+
 <div id="messages" class="panel-body panel-messages" role="log" aria-live"polite"></div>
 <input id="chat-input" type="text" placeholder="Type a message..."></input>
 
@@ -10,4 +11,5 @@
       <div class="panel-body panel-users" id="online-users">
       </div>
        %>
+       
 <%# <a href="login.html.eex"><input type= "button" id="btn" value="Join a chat"></input></a> %>
