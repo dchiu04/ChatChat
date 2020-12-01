@@ -25,10 +25,9 @@ config :logger, level: :info
 #       ...
 #       url: [host: "example.com", port: 443],
 
-http: [port: {:system, "PORT"}],
-url: [scheme: "https", host: "https://gentle-castle-10283.herokuapp.com", port: 443],
-force_ssl: [rewrite_on: [:x_forwarded_proto]],
-
+   http: [port: {:system, "PORT"}],
+   url: [scheme: "https", host: "https://gentle-castle-10283.herokuapp.com", port: 443],
+   force_ssl: [rewrite_on: [:x_forwarded_proto]]
 #       https: [
 #         port: 443,
 #         cipher_suite: :strong,
