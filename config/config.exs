@@ -12,8 +12,16 @@ config :chatchat,
 
 # Configures the endpoint
 config :chatchat, ChatchatWeb.Endpoint,
-  #url: [host: "localhost"],
-  url: [host: "https://gentle-castle-10283.herokuapp.com/"],
+#Don't work:
+ #url: [host: "localhost"],
+ #url: [host: "https://gentle-castle-10283.herokuapp.com/"],
+ 
+ #trying:
+  url: [scheme: "https", host: "https://gentle-castle-10283.herokuapp.com/"],
+  check_origin: [
+   "https://www.gentle-castle-10283.herokuapp.com/",
+   "https://gentle-castle-10283.herokuapp.com/"
+  ],
   secret_key_base: "PBewU0fwXp2G5mlf3DrYpxXRkzwLHdG8o7PkvIdhf4oh4qmtHH5ZSuJ1pJRPeTAf",
   render_errors: [view: ChatchatWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Chatchat.PubSub,
