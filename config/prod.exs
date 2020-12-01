@@ -10,11 +10,8 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :chatchat, ChatchatWeb.Endpoint,
-load_from_system_env: true,
-url: [scheme: "https", host: "phxchat.herokuapp.com", port: 443],
-force_ssl: [rewrite_on: [:x_forwarded_proto]],
-cache_static_manifest: "priv/static/cache_manifest.json",
-secret_key_base: Map.fetch!(System.get_env(), "SECRET_KEY_BASE")
+  url: [host: "example.com", port: 80],
+  cache_static_manifest: "priv/static/cache_manifest.json"
 
 # Do not print debug messages in production
 config :logger, level: :info
@@ -24,13 +21,13 @@ config :logger, level: :info
 # To get SSL working, you will need to add the `https` key
 # to the previous section and set your `:url` port to 443:
 #
-#      config :chatchat, ChatchatWeb.Endpoint,
-# #       ...
-# #       url: [host: "example.com", port: 443],
+     config :chatchat, ChatchatWeb.Endpoint,
+#       ...
+#       url: [host: "example.com", port: 443],
 
-#    http: [port: {:system, "PORT"}],
-#    url: [scheme: "https", host: "https://gentle-castle-10283.herokuapp.com", port: 443],
-#    force_ssl: [rewrite_on: [:x_forwarded_proto]]
+   http: [port: {:system, "PORT"}],
+   url: [scheme: "https", host: "https://gentle-castle-10283.herokuapp.com", port: 443],
+   force_ssl: [rewrite_on: [:x_forwarded_proto]]
 #       https: [
 #         port: 443,
 #         cipher_suite: :strong,
@@ -59,9 +56,4 @@ config :logger, level: :info
 
 # Finally import the config/prod.secret.exs which loads secrets
 # and configuration from environment variables.
-# import_config "prod.secret.exs"
-config :chat, Chatchat.Repo,
-  adapter: Ecto.Adapters.Postgres,
-  url: System.get_env("DATABASE_URL"),
-  pool_size: String.to_integer(System.get_env("POOL_SIZE") || "10"),
-  ssl: true
+import_config "prod.secret.exs"
