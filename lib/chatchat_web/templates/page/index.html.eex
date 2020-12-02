@@ -6,13 +6,10 @@
   <input id="chat-input" type="text" placeholder="Type a message..."></input>
 </div>
 <div class="col-md-3">
-    <div class="panel panel-default chat-room">
-      <div class="panel-heading">
         Online Users
-      </div>
       <div class="panel-body panel-users" id="online-users">
       </div>
-    </div>
+    
   </div>
 
 <script>

@@ -4,7 +4,7 @@ defmodule ChatchatWeb.RoomChannel do
     def join("room:lobby", payload, socket) do
         if authorized?(payload) do
           send(self(), :after_join)
-          # send(self(), :users)
+          send(self(), :users)
           {:ok, socket}
         else
           {:error, %{reason: "unauthorized"}}
