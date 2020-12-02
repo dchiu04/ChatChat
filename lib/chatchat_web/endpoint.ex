@@ -1,5 +1,6 @@
 defmodule ChatchatWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :chatchat
+  # all requests to the web application starts
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
@@ -35,6 +36,7 @@ defmodule ChatchatWeb.Endpoint do
     plug Phoenix.Ecto.CheckRepoStatus, otp_app: :chatchat
   end
 
+  # pipelines for requests to pass
   plug Phoenix.LiveDashboard.RequestLogger,
     param_key: "request_logger",
     cookie_key: "request_logger"

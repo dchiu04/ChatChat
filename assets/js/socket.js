@@ -54,7 +54,7 @@ let socket = new Socket("/socket", {params: {token: window.userToken}})
 // Finally, connect to the socket:
 socket.connect()
 
-// Now that you are connected, you can join channels with a topic:
+//connected, join channels with a topic:
 let channel = socket.channel("room:lobby", {})
 let chatInput = document.getElementById("chat-input")
 let msgContainer = document.getElementById("messages")
@@ -98,10 +98,8 @@ function getUsername() {
 
   //set online user list
   let onlineUserList = document.getElementById("online-users");
-  onlineUserList.innerHTML += txt + " ";
-  console.log(onlineUserList.innerHTML);
-
-  return txt; 
+  onlineUserList.innerHTML += "<b>" + txt +  "</b> ";
+  return txt;
 }
 
 export default socket
