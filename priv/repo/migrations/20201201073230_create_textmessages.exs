@@ -6,6 +6,7 @@ defmodule Chatchat.Repo.Migrations.CreateTextmessages do
       add :name, :string
       add :date, :string
       add :message, :string
+      add :room, :string
 
       timestamps()
     end
