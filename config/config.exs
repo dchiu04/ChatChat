@@ -15,6 +15,7 @@ config :chatchat, ChatchatWeb.Endpoint,
 
   url: [scheme: "https", host: "https://chatchatelixir.herokuapp.com/"],
   check_origin: [
+    "https://chatchatelixir.herokuapp.com/",
    "https://www.chatchatelixir.herokuapp.com/"
   ],
   secret_key_base: "2MXWbUQwWpNMyTTCd13PXk7I5H5VkN8hGlG7zrlUvSGNL5+LFapC6MBVUCCchhYm",
