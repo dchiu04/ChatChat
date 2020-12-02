@@ -28,9 +28,9 @@ defmodule ChatchatWeb.RoomChannel do
     def handle_in("ping", payload, socket) do
         {:reply, {:ok, payload}, socket}
       end
-    
+
     def handle_in("new_msg", payload, socket) do
-        Chatchat.TextMessage.changeset(%Chatchat.TextMessage{}, payload) |> Chatchat.Repo.insert()  
+        Chatchat.TextMessage.changeset(%Chatchat.TextMessage{}, payload) |> Chatchat.Repo.insert()
         broadcast!(socket, "new_msg", payload)
         {:noreply, socket}
     end
@@ -42,6 +42,12 @@ defmodule ChatchatWeb.RoomChannel do
 
     @impl true
     def handle_info(:after_join, socket) do
+      user = socket.assigns.user
+      {:ok, _} = Presence.track(socket, user.id, %{
+        username: user.name,
+        online_at: System.system_time(:second)
+      })
+      push(socket, "presence_state", Presence.list(socket))
         Chatchat.TextMessage.get_messages()
         |> Enum.each(fn msg -> push(socket, "new_msg", %{
             name: msg.name,
