@@ -4,6 +4,7 @@ defmodule ChatchatWeb.RoomChannel do
     def join("room:lobby", payload, socket) do
         if authorized?(payload) do
           send(self(), :after_join)
+          send(self(), :users)
           {:ok, socket}
         else
           {:error, %{reason: "unauthorized"}}
@@ -25,6 +26,8 @@ defmodule ChatchatWeb.RoomChannel do
     # end
 
     #not sure about this
+    @spec handle_in(<<_::32, _::_*24>>, any, any) ::
+            {:noreply, Phoenix.Socket.t()} | {:reply, {:ok, any}, any}
     def handle_in("ping", payload, socket) do
         {:reply, {:ok, payload}, socket}
       end
@@ -49,5 +52,14 @@ defmodule ChatchatWeb.RoomChannel do
             message: msg.message,
           }) end)
         {:noreply, socket} # :noreply
+      end
+
+      def handle_info(:users, socket) do
+        user = socket.assigns.user
+        {:ok, _} = ChatchatWeb.Presence.track(socket, user.id, %{
+          username: user.name
+        })
+        push(socket, "presence_state", ChatchatWeb.Presence.list(socket))
+        {:noreply, socket}
       end
 end
