@@ -1,4 +1,4 @@
-# Chatchat
+# ChatChat
 
 To run locally:
   * Download files off GitHub: https://github.com/dchiu04/ChatChat
@@ -10,5 +10,4 @@ To run locally:
   * Open a web browser and type in http://localhost:4000/ 
 
 ## Hosted Website
-  * https://quiet-taiga-14264.herokuapp.com/
   * https://chatchatelixir.herokuapp.com/

@@ -66,6 +66,7 @@ let userName = getUsername();
 let d = Date().toString();
 let date = d.split(' ').splice(0, 5).join(' ');
 
+
 chatInput.addEventListener("keypress", event => {
   if(event.key == "Enter") {
     //refresh date
@@ -94,27 +95,13 @@ function getUsername() {
   }
   txt = name;
   document.getElementById("User").innerHTML = txt; 
+
+  //set online user list
+  let onlineUserList = document.getElementById("online-users");
+  onlineUserList.innerHTML += txt + " ";
+  console.log(onlineUserList.innerHTML);
+
   return txt; 
 }
 
-let body = document.getElementsByTagName("BODY")[0];
-let color = document.getElementById("color");
-let colorBtn = document.getElementById("colorpicker");
-
-colorBtn.addEventListener("keypress", event => {
-  if(event.key == "click") {
-    let body = document.getElementsByTagName("BODY")[0];
-    let color = document.getElementById("color");
-    body.getElementsByClassName.backgroundColor = color.value;
-    console.log("changed color to ", color.value); 
-  }
-})
-
-function changeBg() {
-  let body = document.getElementsByTagName("BODY")[0];
-  let color = document.getElementById("color");
-  body.getElementsByClassName.backgroundColor = color.value;
-  console.log("changed color to ", color.value); 
-
-}
 export default socket

@@ -25,6 +25,7 @@ body {
 }
 #colorpicker {
   background-color: lightblue;
+  margin-left: 20px;
 }
 
 /*formatting chat box scrolling */
@@ -38,7 +39,7 @@ body {
  .panel-messages, .panel-users {
   height: 400px;
   overflow-y: scroll;
-  background-color: white;
+  background-color: #fcfcfc;
   border-radius: 5px;
  }
  #chat-messages {

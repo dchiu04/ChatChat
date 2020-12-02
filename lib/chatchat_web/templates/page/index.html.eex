@@ -1,7 +1,9 @@
 <div id="user">Logged in as: <span id="User"></span></div><br>
 <input type="color" id="color">
 <button id="colorpicker" value = "#ffffff" onclick="changeBg()">Change BG Colour</button>
-<div id="messages" class="panel-body panel-messages" role="log" aria-live"polite"></div>
+<div id="online-users" style="float:right">Online Users:asdsssssssssssssssssssssssssssssssssssssss </div>
+<div id="messages" class="panel-body panel-messages" role="log" aria-live"polite" >
+</div>
 <input id="chat-input" type="text" placeholder="Type a message..."></input>
 
 <script>
@@ -10,30 +12,31 @@ getBg();
 //changes bg of body
 function changeBg() {
   let color = document.getElementById("color").value;
-  console.log(color);
   document.body.style.backgroundColor = color;
-  console.log("changed color to ", color); 
   localStorage.setItem("bg", color);
   if (color == "black" || color == "#000000") {
     let txt = document.getElementById("user").style.color = "white";
+    let users = document.getElementById("online-users").style.color = "white";
   }
   else {
      let txt = document.getElementById("user").style.color = "black";
+     let users = document.getElementById("online-users").style.color = "black";
   }
 }
 
 //loads user's saved bg color
 function getBg() {
   let bg = localStorage.getItem("bg");
-  console.log(bg);
   if (bg != null) {
     document.body.style.backgroundColor = bg;
   }
-   if (color == "black" || color == "#000000") {
+   if (bg == "black" || bg == "#000000") {
     let txt = document.getElementById("user").style.color = "white";
+    let users = document.getElementById("online-users").style.color = "white";
   }
   else {
-     let txt = document.getElementById("user").style.color = "black";
+    let txt = document.getElementById("user").style.color = "black";
+    let users = document.getElementById("online-users").style.color = "black";
   }
 }
 </script>
