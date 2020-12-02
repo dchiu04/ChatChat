@@ -84,11 +84,14 @@ channel.on("new_msg", payload => {
     msgContainer.appendChild(msgItem);
 })
 
-channel.on("new_msg", payload => {
-    let msgItem = document.createElement("p");
-    msgItem.innerHTML = `${payload.date} <b>${payload.name}</b>: ${payload.message}`
-    msgContainer.appendChild(msgItem);
+channel.on("presence_state", payload => {
+    let userName = document.createElement("p");
+    userName.innerHTML = `${payload.name}</b>`
+    usersContainer.appendChild(userName);
 })
+
+
+
 
 channel.join();
 

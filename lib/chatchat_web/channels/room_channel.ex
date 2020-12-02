@@ -43,11 +43,10 @@ defmodule ChatchatWeb.RoomChannel do
     @impl true
     def handle_info(:after_join, socket) do
       user = socket.assigns.user
-      {:ok, _} = Presence.track(socket, user.id, %{
-        username: user.name,
-        online_at: System.system_time(:second)
+      {:ok, _} = ChatchatWeb.Presence.track(socket, user.id, %{
+        username: user.name
       })
-      push(socket, "presence_state", Presence.list(socket))
+      push(socket, "presence_state", ChatchatWeb.Presence.list(socket))
         Chatchat.TextMessage.get_messages()
         |> Enum.each(fn msg -> push(socket, "new_msg", %{
             name: msg.name,
