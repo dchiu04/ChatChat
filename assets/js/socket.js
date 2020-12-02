@@ -85,15 +85,10 @@ channel.on("new_msg", payload => {
     msgContainer.appendChild(msgItem);
 })
 
-
-
-
-
 channel.join();
 
 //alerts users to enter a username to join the chatroom
 function getUsername() {
-<<<<<<< HEAD
   let txt;
   let name = prompt("Please enter your name to enter the chatroom:");
   while(name == "" || name == null) {
@@ -101,45 +96,12 @@ function getUsername() {
   }
   txt = name;
   document.getElementById("User").innerHTML = txt; 
-=======
-    let txt;
-    let name = prompt("Please enter your name to enter the chatroom:");
-    while (name == "" || name == null) {
-        name = prompt("Enter your name to start chatting:")
-    }
-    txt = name;
-    document.getElementById("User").innerHTML = txt;
-    return txt;
-}
-
-let body = document.getElementsByTagName("BODY")[0];
-let color = document.getElementById("color");
-let colorBtn = document.getElementById("colorpicker");
-
-colorBtn.addEventListener("keypress", event => {
-    if (event.key == "click") {
-        let body = document.getElementsByTagName("BODY")[0];
-        let color = document.getElementById("color");
-        body.getElementsByClassName.backgroundColor = color.value;
-        console.log("changed color to ", color.value);
-    }
-})
-
-function changeBg() {
-    let body = document.getElementsByTagName("BODY")[0];
-    let color = document.getElementById("color");
-    body.getElementsByClassName.backgroundColor = color.value;
-    console.log("changed color to ", color.value);
->>>>>>> 866142bb00c4c1c5837834ace858ab3121ed5161
 
   //set online user list
   let onlineUserList = document.getElementById("online-users");
   onlineUserList.innerHTML += "<b>" + txt +  "</b> ";
   return txt;
 }
-<<<<<<< HEAD
 
 export default socket
-=======
-export default socket
->>>>>>> 866142bb00c4c1c5837834ace858ab3121ed5161
+
