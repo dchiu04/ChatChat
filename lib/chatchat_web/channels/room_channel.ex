@@ -54,12 +54,12 @@ defmodule ChatchatWeb.RoomChannel do
         {:noreply, socket} # :noreply
       end
 
-      def handle_info(:users, socket) do
-        user = socket.assigns.user
-        {:ok, _} = ChatchatWeb.Presence.track(socket, user.id, %{
-          username: user.name
-        })
-        push(socket, "presence_state", ChatchatWeb.Presence.list(socket))
-        {:noreply, socket}
-      end
+      # def handle_info(:users, socket) do
+      #   user = socket.assigns.user
+      #   {:ok, _} = ChatchatWeb.Presence.track(socket, user.id, %{
+      #     username: user.name
+      #   })
+      #   push(socket, "presence_state", ChatchatWeb.Presence.list(socket))
+      #   {:noreply, socket}
+      # end
 end
