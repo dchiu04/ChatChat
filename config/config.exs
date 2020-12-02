@@ -13,10 +13,10 @@ config :chatchat,
 # Configures the endpoint
 config :chatchat, ChatchatWeb.Endpoint,
 
-  url: [scheme: "https", host: "https://quiet-taiga-14264.herokuapp.com/"],
+  url: [scheme: "https", host: "https://chatchatelixir.herokuapp.com/"],
   check_origin: [
-   "https://quiet-taiga-14264.herokuapp.com/",
-   "https://www.quiet-taiga-14264.herokuapp.com/"
+   "https://chatchatelixir.herokuapp.com/",
+   "https://www.chatchatelixir.herokuapp.com/"
   ],
   secret_key_base: "2MXWbUQwWpNMyTTCd13PXk7I5H5VkN8hGlG7zrlUvSGNL5+LFapC6MBVUCCchhYm",
   render_errors: [view: ChatchatWeb.ErrorView, accepts: ~w(html json), layout: false],
