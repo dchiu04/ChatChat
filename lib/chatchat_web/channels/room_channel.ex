@@ -32,7 +32,7 @@ defmodule ChatchatWeb.RoomChannel do
       end
 
     def handle_in("new_msg", payload, socket) do
-        "chat:" <> room = socket.topic
+        "room:" <> room = socket.topic
         payload = Map.merge(payload, %{"room" => room})
         Chatchat.TextMessage.changeset(%Chatchat.TextMessage{}, payload) |> Chatchat.Repo.insert()
         broadcast!(socket, "new_msg", payload)
