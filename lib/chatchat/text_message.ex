@@ -6,6 +6,7 @@ defmodule Chatchat.TextMessage do
     field :date, :string
     field :message, :string
     field :name, :string
+    field :room, :string
 
     timestamps()
   end
@@ -20,5 +21,6 @@ defmodule Chatchat.TextMessage do
   def get_messages(limit \\ 20) do
     Chatchat.Repo.all(Chatchat.TextMessage, limit: limit)
   end
+
 
 end
