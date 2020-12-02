@@ -1,20 +1,14 @@
 # Chatchat
 
-To start your Phoenix server:
-
+To run locally:
+  * Download files off GitHub: https://github.com/dchiu04/ChatChat
+  * Unzip files
+  * CD into "ChatChat-main" and open terminal by typing cmd in the folder search bar
   * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
   * Install Node.js dependencies with `npm install` inside the `assets` directory
-  * Start Phoenix endpoint with `mix phx.server`
+  * Return to the root of the folder (where this README.md is located) and start Phoenix endpoint with `mix phx.server`
+  * Open a web browser and type in http://localhost:4000/ 
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
-
-## Learn more
-
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix
+## Hosted Website
+  * https://quiet-taiga-14264.herokuapp.com/
+  * https://chatchatelixir.herokuapp.com/
