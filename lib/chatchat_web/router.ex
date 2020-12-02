@@ -16,7 +16,7 @@ defmodule ChatchatWeb.Router do
   scope "/", ChatchatWeb do
     pipe_through :browser
 
-    # get "/", PageController, :index
+    get "/", PageController, :index
     # resources "/messages", MessageController
   end
 
