@@ -11,7 +11,6 @@ defmodule Chatchat.Application do
       Chatchat.Repo,
       # Start the Telemetry supervisor
       ChatchatWeb.Telemetry,
-      ChatchatWeb.Presence,
       # Start the PubSub system
       {Phoenix.PubSub, name: Chatchat.PubSub},
       # Start the Endpoint (http/https)
