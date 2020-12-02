@@ -6,9 +6,9 @@
 //
 // Pass the token on params as below. Or remove it
 // from the params if you are not using authentication.
-import {Socket} from "phoenix"
+import { Socket } from "phoenix"
 
-let socket = new Socket("/socket", {params: {token: window.userToken}})
+let socket = new Socket("/socket", { params: { token: window.userToken } })
 
 // When you connect, you'll often need to authenticate the client.
 // For example, imagine you have an authentication plug, `MyAuth`,
@@ -58,6 +58,7 @@ socket.connect()
 let channel = socket.channel("room:lobby", {})
 let chatInput = document.getElementById("chat-input")
 let msgContainer = document.getElementById("messages")
+let usersContainer = document.getElementById("online-users")
 
 //username
 let userName = getUsername();
@@ -68,26 +69,31 @@ let date = d.split(' ').splice(0, 5).join(' ');
 
 
 chatInput.addEventListener("keypress", event => {
-  if(event.key == "Enter") {
-    //refresh date
-    d = Date().toString();
-    date = d.split(' ').splice(0, 5).join(' ')
+    if (event.key == "Enter") {
+        //refresh date
+        d = Date().toString();
+        date = d.split(' ').splice(0, 5).join(' ')
 
-    channel.push("new_msg", {name: userName, date: date, message: chatInput.value})
-    chatInput.value = ""
-  }
+        channel.push("new_msg", { name: userName, date: date, message: chatInput.value })
+        chatInput.value = ""
+    }
 })
 
 channel.on("new_msg", payload => {
-  let msgItem = document.createElement("p");
-  msgItem.innerHTML = `${payload.date} <b>${payload.name}</b>: ${payload.message}`
-  msgContainer.appendChild(msgItem);
+    let msgItem = document.createElement("p");
+    msgItem.innerHTML = `${payload.date} <b>${payload.name}</b>: ${payload.message}`
+    msgContainer.appendChild(msgItem);
 })
+
+
+
+
 
 channel.join();
 
 //alerts users to enter a username to join the chatroom
 function getUsername() {
+<<<<<<< HEAD
   let txt;
   let name = prompt("Please enter your name to enter the chatroom:");
   while(name == "" || name == null) {
@@ -95,11 +101,45 @@ function getUsername() {
   }
   txt = name;
   document.getElementById("User").innerHTML = txt; 
+=======
+    let txt;
+    let name = prompt("Please enter your name to enter the chatroom:");
+    while (name == "" || name == null) {
+        name = prompt("Enter your name to start chatting:")
+    }
+    txt = name;
+    document.getElementById("User").innerHTML = txt;
+    return txt;
+}
+
+let body = document.getElementsByTagName("BODY")[0];
+let color = document.getElementById("color");
+let colorBtn = document.getElementById("colorpicker");
+
+colorBtn.addEventListener("keypress", event => {
+    if (event.key == "click") {
+        let body = document.getElementsByTagName("BODY")[0];
+        let color = document.getElementById("color");
+        body.getElementsByClassName.backgroundColor = color.value;
+        console.log("changed color to ", color.value);
+    }
+})
+
+function changeBg() {
+    let body = document.getElementsByTagName("BODY")[0];
+    let color = document.getElementById("color");
+    body.getElementsByClassName.backgroundColor = color.value;
+    console.log("changed color to ", color.value);
+>>>>>>> 866142bb00c4c1c5837834ace858ab3121ed5161
 
   //set online user list
   let onlineUserList = document.getElementById("online-users");
   onlineUserList.innerHTML += "<b>" + txt +  "</b> ";
   return txt;
 }
+<<<<<<< HEAD
 
 export default socket
+=======
+export default socket
+>>>>>>> 866142bb00c4c1c5837834ace858ab3121ed5161

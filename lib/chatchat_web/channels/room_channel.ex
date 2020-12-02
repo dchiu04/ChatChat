@@ -25,12 +25,14 @@ defmodule ChatchatWeb.RoomChannel do
     # end
 
     #not sure about this
+    @spec handle_in(<<_::32, _::_*24>>, any, any) ::
+            {:noreply, Phoenix.Socket.t()} | {:reply, {:ok, any}, any}
     def handle_in("ping", payload, socket) do
         {:reply, {:ok, payload}, socket}
       end
-    
+
     def handle_in("new_msg", payload, socket) do
-        Chatchat.TextMessage.changeset(%Chatchat.TextMessage{}, payload) |> Chatchat.Repo.insert()  
+        Chatchat.TextMessage.changeset(%Chatchat.TextMessage{}, payload) |> Chatchat.Repo.insert()
         broadcast!(socket, "new_msg", payload)
         {:noreply, socket}
     end
@@ -48,6 +50,12 @@ defmodule ChatchatWeb.RoomChannel do
             date: msg.date,
             message: msg.message,
           }) end)
+        # user = socket.assigns.user
+        # {:ok, _} = ChatchatWeb.Presence.track(socket, user.id, %{
+        #   username: user.name
+        # })
+        # push(socket, "presence_state", ChatchatWeb.Presence.list(socket))
         {:noreply, socket} # :noreply
       end
+
 end
