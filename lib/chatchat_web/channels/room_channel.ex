@@ -24,7 +24,7 @@ defmodule ChatchatWeb.RoomChannel do
     #     {:noreply, socket}
     # end
 
-    #not sure about this
+
     @spec handle_in(<<_::32, _::_*24>>, any, any) ::
             {:noreply, Phoenix.Socket.t()} | {:reply, {:ok, any}, any}
     def handle_in("ping", payload, socket) do

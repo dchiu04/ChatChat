@@ -98,8 +98,8 @@ function getUsername() {
   document.getElementById("User").innerHTML = txt; 
 
   //set online user list
-  let onlineUserList = document.getElementById("online-users");
-  onlineUserList.innerHTML += "<b>" + txt +  "</b> ";
+  //let onlineUserList = document.getElementById("online-users");
+  //onlineUserList.innerHTML += "<b>" + txt +  "</b> ";
   return txt;
 }
 

@@ -6,6 +6,8 @@ To run locally:
   * CD into "ChatChat-main" and open terminal by typing cmd in the folder search bar
   * Install dependencies with `mix deps.get`
   * Install Node.js dependencies with `npm install` inside the `assets` directory
+  * Change dev.exs with your own Postgres credentials
+  * Run `mix ecto.migrate` to create a new table
   * Return to the root of the folder (where this README.md is located) and start Phoenix endpoint with `mix phx.server`
   * Open a web browser and type in http://localhost:4000/ 
 
