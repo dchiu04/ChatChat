@@ -1,9 +1,8 @@
 defmodule ChatchatWeb.PageController do
   use ChatchatWeb, :controller
 
-  plug :action
-  
   def index(conn, _params) do
-    render(conn, "index.html")
+    messages = Chatchat.Chats.list_messages_by_room("Main")
+    render(conn, "index.html",  room: "Main Lobby", messages: messages)
   end
 end

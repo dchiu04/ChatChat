@@ -12,16 +12,15 @@ config :chatchat,
 
 # Configures the endpoint
 config :chatchat, ChatchatWeb.Endpoint,
-
-  url: [scheme: "https", host: "https://chatchatelixir.herokuapp.com/"],
+  url: [scheme: "https", host: "chatchatphx.herokuapp.com/"],
   check_origin: [
-    "https://chatchatelixir.herokuapp.com/",
-   "https://www.chatchatelixir.herokuapp.com/"
+    "https://chatchatphx.herokuapp.com/",
+   "https://www.chatchatphx.herokuapp.com/"
   ],
-  secret_key_base: "2MXWbUQwWpNMyTTCd13PXk7I5H5VkN8hGlG7zrlUvSGNL5+LFapC6MBVUCCchhYm",
+  secret_key_base: "GH4a5ieuY6P47sC0qnnMILoZCvxKuJnzX8ZRnEm2Q/bPI/nQU3jtHY9gDAi4NIMN",
   render_errors: [view: ChatchatWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: Chatchat.PubSub,
-  live_view: [signing_salt: "/z7JoUhA"]
+  live_view: [signing_salt: "/iCEhCTz"]
 
 # Configures Elixir's Logger
 config :logger, :console,

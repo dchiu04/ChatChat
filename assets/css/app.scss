@@ -1,83 +1,110 @@
 /* This file is for your main application css. */
+
 @import "./phoenix.css";
-
 #logo {
-  color: #681885;
-  text-align: center;
-  text-shadow: 2px 2px #dfdfdf;
-  padding-top: 20px;
-}
-span {
-  color: #00daff;
-  font-weight: bold;
-}
-p {
-  margin-bottom: 0px;
-  margin-left: 5px;
+    color: #681885;
+    text-align: center;
+    text-shadow: 2px 2px #dfdfdf;
+    padding-top: 20px;
 }
 
-#chat-input{
-  background: white;
+button {
+    background-color: lightblue;
+}
+
+span {
+    color: #00daff;
+    font-weight: bold;
+}
+
+p {
+    margin-bottom: 0px;
+    margin-left: 5px;
+}
+
+#chat-box {
+    background: white;
+    height: 400px;
+    overflow-y: scroll;
+    background-color: #fcfcfc;
+    border-radius: 5px;
+}
+
+#user-msg {
+    background: white;
 }
 
 body {
-  background-color: #ecdfdf;
-}
-#colorpicker {
-  background-color: lightblue;
-  margin-left: 20px;
+    background-color: #ecdfdf;
 }
 
+#colorpicker {
+    background-color: lightblue;
+    margin-left: 20px;
+}
+
+
 /*formatting chat box scrolling */
+
 .chat {
-  margin-top: 0em;
- }
- .chat-room {
-  margin-top: 1em;
- }
- 
- .panel-messages, .panel-users {
-  height: 400px;
-  overflow-y: scroll;
-  background-color: #fcfcfc;
-  border-radius: 5px;
- }
- #chat-messages {
-  min-height: 400px;
-  overflow-y: scroll;
- }
+    margin-top: 0em;
+}
+
+.chat-room {
+    margin-top: 1em;
+}
+
+.panel-messages,
+.panel-users {
+    height: 400px;
+    overflow-y: scroll;
+    background-color: #fcfcfc;
+    border-radius: 5px;
+}
+
+#chat-messages {
+    min-height: 400px;
+    overflow-y: scroll;
+}
 
 
 /* Alerts and form errors */
+
 .alert {
-  padding: 15px;
-  margin-bottom: 20px;
-  border: 1px solid transparent;
-  border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
 }
+
 .alert-info {
-  color: #31708f;
-  background-color: #d9edf7;
-  border-color: #bce8f1;
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #bce8f1;
 }
+
 .alert-warning {
-  color: #8a6d3b;
-  background-color: #fcf8e3;
-  border-color: #faebcc;
+    color: #8a6d3b;
+    background-color: #fcf8e3;
+    border-color: #faebcc;
 }
+
 .alert-danger {
-  color: #a94442;
-  background-color: #f2dede;
-  border-color: #ebccd1;
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
 }
+
 .alert p {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
+
 .alert:empty {
-  display: none;
+    display: none;
 }
+
 .invalid-feedback {
-  color: #a94442;
-  display: block;
-  margin: -1rem 0 2rem;
+    color: #a94442;
+    display: block;
+    margin: -1rem 0 2rem;
 }

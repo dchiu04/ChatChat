@@ -6,7 +6,7 @@ defmodule Chatchat.Chats do
   import Ecto.Query, warn: false
   alias Chatchat.Repo
 
-  alias Chatchat.TextMessage
+  alias Chatchat.Chats.Message
 
   @doc """
   Returns the list of messages.
@@ -18,7 +18,7 @@ defmodule Chatchat.Chats do
 
   """
   def list_messages do
-    Repo.all(TextMessage)
+    Repo.all(Message)
   end
 
   @doc """
@@ -35,7 +35,7 @@ defmodule Chatchat.Chats do
       ** (Ecto.NoResultsError)
 
   """
-  def get_message!(id), do: Repo.get!(TextMessage, id)
+  def get_message!(id), do: Repo.get!(Message, id)
 
   @doc """
   Creates a message.
@@ -50,8 +50,8 @@ defmodule Chatchat.Chats do
 
   """
   def create_message(attrs \\ %{}) do
-    %TextMessage{}
-    |> TextMessage.changeset(attrs)
+    %Message{}
+    |> Message.changeset(attrs)
     |> Repo.insert()
   end
 
@@ -67,9 +67,9 @@ defmodule Chatchat.Chats do
       {:error, %Ecto.Changeset{}}
 
   """
-  def update_message(%TextMessage{} = message, attrs) do
+  def update_message(%Message{} = message, attrs) do
     message
-    |> TextMessage.changeset(attrs)
+    |> Message.changeset(attrs)
     |> Repo.update()
   end
 
@@ -85,7 +85,7 @@ defmodule Chatchat.Chats do
       {:error, %Ecto.Changeset{}}
 
   """
-  def delete_message(%TextMessage{} = message) do
+  def delete_message(%Message{} = message) do
     Repo.delete(message)
   end
 
@@ -98,14 +98,17 @@ defmodule Chatchat.Chats do
       %Ecto.Changeset{data: %Message{}}
 
   """
-  def change_message(%TextMessage{} = message, attrs \\ %{}) do
-    TextMessage.changeset(message, attrs)
+  def change_message(%Message{} = message, attrs \\ %{}) do
+    Message.changeset(message, attrs)
   end
 
+  #querying messages for individual chat rooms
   def list_messages_by_room(room) do
-    qry = from m in TextMessage,
+    qry = from m in Message,
+      #matches room
       where: m.room == ^room,
       order_by: [asc: m.inserted_at]
+    #returns eveyrthing that matches in the repo
     Repo.all(qry)
   end
 end

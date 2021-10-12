@@ -1,5 +1,5 @@
 
-<h2 id ="room">Room: <%= @room%></h2>
+<h2 id ="room">Room: <%= @room%></h2> 
 <div id="user">Logged in as: <span id="User"></span></div><br>
 <input type="color" id="color">
 <button id="colorpicker" value = "#ffffff" onclick="changeBg()">Change BG Colour</button>
@@ -18,13 +18,9 @@ getBg();
 
 //changes bg of body
 function changeBg() {
-  //color picker 
   let color = document.getElementById("color").value;
   document.body.style.backgroundColor = color;
-  //stores color string on client side
   localStorage.setItem("bg", color);
-
-  //visibility
   if (color == "black" || color == "#000000") {
     let txt = document.getElementById("room").style.color = "white";
     let userTxt = document.getElementById("user").style.color = "white";
@@ -37,13 +33,10 @@ function changeBg() {
 
 //loads user's saved bg color
 function getBg() {
-  //retrives color from client side
   let bg = localStorage.getItem("bg");
-  //only set the color if the user has previously picked a colour
   if (bg != null) {
     document.body.style.backgroundColor = bg;
   }
-  //visibliity
    if (bg == "black" || bg == "#000000") {
     let txt = document.getElementById("room").style.color = "white";
     let userTxt = document.getElementById("user").style.color = "white";
